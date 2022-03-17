@@ -6,7 +6,6 @@ export default function PlannerScreen( {navigation} :NativeStackHeaderProps) {
   return (
     <View>
       <Text>PlannerScreen</Text>
-      <Button title='Go to home' onPress={()=> navigation.navigate('Home')}/>
 
     </View>
   )
