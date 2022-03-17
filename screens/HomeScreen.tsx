@@ -1,5 +1,6 @@
 import { View, Text ,StyleSheet ,FlatList} from 'react-native'
 import React from 'react'
+import { Fredoka } from '../components/styled/Fredoka'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 import data from "../data.json"
 import { Workout } from '../types/data'
@@ -12,6 +13,8 @@ export default function HomeScreen({navigation} :NativeStackHeaderProps) {
   return (
     <View style={styles.container}>
      <Text style={styles.header}>New Workouts</Text>
+     <Fredoka text="New Workouts" style={{fontSize : 30}} />
+   
       <FlatList data={data as Workout []} renderItem={ WorkoutItem}
      keyExtractor={ item => item.slug} />
     </View>
@@ -27,6 +30,6 @@ const styles = StyleSheet.create({
   header :{
     fontSize : 20,
     marginBottom : 20,
-    fontWeight : "bold"
+    fontFamily : "fredoka"
   }
 })

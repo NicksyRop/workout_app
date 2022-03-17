@@ -16,7 +16,9 @@ export default function useCachedResources() {
               await  Font.loadAsync({
 
                     "fredoka" : require("../assets/fonts/Fredoka-Bold.ttf"),
-                    "fredoka-regular" : require("../assets/fonts/Fredoka-Regular.ttf")
+                    "fredoka-regular" : require("../assets/fonts/Fredoka-Regular.ttf"),
+                    "roboto" : require("../assets/fonts/Roboto-Bold.ttf"),
+                    "roboto-regular" : require("../assets/fonts/Roboto-Regular.ttf")
                 })
                 
             } catch (error) {

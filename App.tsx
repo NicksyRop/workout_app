@@ -5,14 +5,20 @@ import Navigation from './naviagation/index'
 
 export default function App() {
   const isLoaded = useCachedResources()
-  console.log(isLoaded);
+  if(isLoaded){
+    return (
+      <>
+        <Navigation/>
+        <StatusBar style="auto" />
+      </>
+    );
+    
+  }else{
+
+    return null;
+  }
   
-  return (
-    <>
-      <Navigation/>
-      <StatusBar style="auto" />
-    </>
-  );
+ 
 }
 
 
