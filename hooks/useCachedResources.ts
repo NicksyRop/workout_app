@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import * as Font from 'expo-font'
 import { getData, storeData ,containsKey } from '../storage'
 import data from "../data.json"
+import { clearWorkouts, getWorkouts, initWorkouts } from '../storage/workout'
 
 export default function useCachedResources() {
  
@@ -14,14 +15,8 @@ export default function useCachedResources() {
         async function loadResourcesAndDataAsyn(){
 
             try {
-
-                const hasWorksouts = await containsKey("workout-data");
-
-                if(!hasWorksouts){
-                    console.log("stoirng data");
-                    
-                    await storeData("workout-data", data)
-                }
+         
+              await initWorkouts();
                
 
               await  Font.loadAsync({
@@ -39,8 +34,7 @@ export default function useCachedResources() {
                 
             }finally {
 
-                const workouts = await getData("workout-data")
-                console.log(workouts);
+             
                 
                 setIsLoadingComplete(true)
             }
