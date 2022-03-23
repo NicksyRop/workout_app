@@ -1,4 +1,4 @@
-import { View, Text ,StyleSheet ,FlatList} from 'react-native'
+import { View, Text ,StyleSheet ,FlatList, Pressable} from 'react-native'
 import React from 'react'
 import { Fredoka } from '../components/styled/Fredoka'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
@@ -13,9 +13,18 @@ export default function HomeScreen({navigation} :NativeStackHeaderProps) {
   return (
     <View style={styles.container}>
      <Text style={styles.header}>New Workouts</Text>
-     <Fredoka text="New Workouts" style={{fontSize : 30}} />
+     {/* <Fredoka text="New Workouts" style={{fontSize : 30}} /> */}
    
-      <FlatList data={data as Workout []} renderItem={ WorkoutItem}
+      <FlatList data={data as Workout []}
+       renderItem={ ({item}) =>{
+
+        return(
+          <Pressable onPress={ () => navigation.navigate("WorkoutDetail", { slug : item.slug})}>
+            <WorkoutItem item={item}/>
+          </Pressable>
+          
+        )
+       } }
      keyExtractor={ item => item.slug} />
     </View>
   )

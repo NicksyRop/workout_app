@@ -6,6 +6,7 @@ import TestScreen from "../screens/TestScreen";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import WorkoutDetailsScreen from "../screens/WorkoutDetailScreen";
 
 
 
@@ -29,7 +30,7 @@ function NavScreens(){
     return(
         <Stack.Navigator >
         <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown : false}}/>
-        <Stack.Screen name="Test" component={TestScreen} />
+        <Stack.Screen name="WorkoutDetail" component={WorkoutDetailsScreen} options={{ title : "Workout Info"}} />
        
     </Stack.Navigator>
 
