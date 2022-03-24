@@ -21,7 +21,7 @@ export const useWorkouts = () =>{
    
      }
 
-     //only fetch data when is focus is true
+     //only fetch data when is focus is true 
      if(isFocused){
         getData();
 
