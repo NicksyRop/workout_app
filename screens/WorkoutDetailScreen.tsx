@@ -1,8 +1,9 @@
-import { View, Text ,StyleSheet, Pressable} from 'react-native'
+import { View, Text ,StyleSheet, Modal} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 import { getWorkoutBySlug } from '../storage/workout'
 import { useWorkoutBySlug } from '../hooks/useWorkoutBySlug'
+import { PressableText } from '../components/styled/PressableText'
 
 type DetailsType ={
 route:{
@@ -19,6 +20,8 @@ type Navigation = NativeStackHeaderProps & DetailsType
 
 export default function WorkoutDetailsScreen({ route} : Navigation) {
 
+  const [ isModalVisible , setModalVisible] = useState(false)
+
 
   const workout = useWorkoutBySlug(route.params.slug)
 
@@ -28,18 +31,20 @@ export default function WorkoutDetailsScreen({ route} : Navigation) {
 
     return null;
   }
-
-
-
-
- 
   
   return (
     <View style={styles.container}>
      <Text style={styles.header}> { workout.name}</Text>
-     <Pressable onPress={() => alert("opening modal")}>
-       <Text style={{ textDecorationLine : "underline"}}>check sequence</Text>
-     </Pressable>
+     <PressableText text="Check Sequence" onPress={ () => setModalVisible(true)}/>
+     <Modal 
+     visible={isModalVisible}
+     transparent={false}
+     animationType = "slide"
+     >
+       <Text style={{marginBottom : 100}}>Hello there</Text>
+       <PressableText text="Close" onPress={ () => setModalVisible(false)}/>
+     </Modal>
+     
     
     </View>
   )
