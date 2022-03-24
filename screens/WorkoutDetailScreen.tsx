@@ -41,8 +41,10 @@ export default function WorkoutDetailsScreen({ route} : Navigation) {
      transparent={false}
      animationType = "slide"
      >
-       <Text style={{marginBottom : 100}}>Hello there</Text>
+       <View style={styles.centerView}>
+       <Text>Hello there</Text>
        <PressableText text="Close" onPress={ () => setModalVisible(false)}/>
+       </View>
      </Modal>
      
     
@@ -60,5 +62,10 @@ const styles = StyleSheet.create({
     fontSize : 20,
     marginBottom : 20,
     fontFamily : "fredoka"
+  },
+  centerView:{
+    flex : 1,
+    justifyContent : "center",
+    alignItems : "center"
   }
 })
